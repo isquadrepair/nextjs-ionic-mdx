@@ -25,8 +25,12 @@ import "@ionic/core/css/flex-utils.css";
 import "@ionic/core/css/display.css";
 
 import "../styles/globals.css";
+import "../styles/Menu.css";
+import "../styles/ExploreContainer.css";
+import { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
+  console.log(pageProps);
   useEffect(() => {
     const applCustomElements = async () => {
       await ionApplyPolyfills();
@@ -38,20 +42,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <ion-app>
-      <ion-header translucent>
-        <ion-toolbar>
-          <ion-title>Next.js with Ionic</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <ion-content fullscreen>
-        <Component {...pageProps} />
-      </ion-content>
-      <ion-footer>
-        <ion-toolbar>
-          <ion-title>Footer</ion-title>
-        </ion-toolbar>
-      </ion-footer>
+      <Component {...pageProps} />
     </ion-app>
   );
 }

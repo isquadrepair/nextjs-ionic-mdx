@@ -1,26 +1,15 @@
-export default function Home() {
-  return (
-    <ion-grid>
-      <ion-row>
-        {new Array(8).fill("").map((k, i) => (
-          <ion-col key={i} size="3">
-            <ion-card>
-              <ion-img src="/static/cat.jpg" alt="Picture of the author"></ion-img>
-              <ion-card-header>
-                <ion-card-subtitle>Destination</ion-card-subtitle>
-                <ion-card-title>Madison, WI</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                <ion-icon name="walk" slot="end"></ion-icon>
-                <ion-icon name="pin" slot="start"></ion-icon>
-                Keep close to Nature's heart... and break clear away, once in
-                awhile, and climb a mountain or spend a week in the woods. Wash
-                your spirit clean.
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        ))}
-      </ion-row>
-    </ion-grid>
-  );
-}
+import React from "react";
+import { useRouter } from "next/router";
+import ExploreContainer from "../components/ExploreContainer";
+import Layout from "../components/Layout";
+
+const Page: React.FC = () => {
+  const { pathname } = useRouter();
+
+  return <Layout pageName="Next.js with Ionic">INDEX PaGE</Layout>;
+};
+
+export const getStaticProps = (context) => {
+  return { props: { pageName: "Home Page" } };
+};
+export default Page;
